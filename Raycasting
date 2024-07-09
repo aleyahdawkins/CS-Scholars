@@ -17,7 +17,7 @@ import math
 # global constants
 SCREEN_HEIGHT = 480
 SCREEN_WIDTH = SCREEN_HEIGHT * 2
-MAP_SIZE = 8
+MAP_SIZE = 12
 TILE_SIZE = int((SCREEN_WIDTH / 2) / MAP_SIZE)
 MAX_DEPTH = int(MAP_SIZE * TILE_SIZE)
 FOV = math.pi / 3
@@ -33,14 +33,18 @@ player_angle = math.pi
 
 # map
 MAP = (
-    '########'
-    '# #    #'
-    '# #  ###'
-    '#      #'
-    '#      #'
-    '#  ##  #'
-    '#   #  #'
-    '########'
+    '############'
+    '#          #'
+    '# # ###  ###'
+    '# #  ##    #'
+    '# #####    #'
+    '#          #'
+    '#  #       #'
+    '#     #    #'
+    '##    #    #'
+    '#  #####   #'
+    '#   #      #'
+    '############'
 )
 
 # init pygame
@@ -58,9 +62,9 @@ clock = pygame.time.Clock()
 # draw map
 def draw_map():
     # loop over map rows
-    for row in range(8):
+    for row in range(MAP_SIZE):
         # loop over map columns
-        for col in range(8):
+        for col in range(MAP_SIZE):
             # calculate square index
             square = row * MAP_SIZE + col
             
